@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
+    
+    //Teszt, teszt halló, halló;
 
     @Override
     public void start(Stage stage) throws Exception {
