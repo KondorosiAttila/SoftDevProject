@@ -1,6 +1,7 @@
 package hu.unideb.inf;
 
 import hu.unideb.inf.model.Model;
+import hu.unideb.inf.view.FXMLPizzaOrderController;
 import hu.unideb.inf.view.FXMLStudentsSceneController;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -20,7 +21,7 @@ public class MainApp extends Application {
         stage.setTitle("Pizza Order");
         stage.setScene(scene);
         
-        ((FXMLStudentsSceneController)loader.getController()).setModel(new Model());
+        ((FXMLPizzaOrderController)loader.getController()).setModel(new Model());
         
         stage.show();
     }
