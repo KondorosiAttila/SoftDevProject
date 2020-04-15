@@ -47,7 +47,31 @@ public class FXMLOrderSceneController implements Initializable {
             és kitenni a GUI-ra
         */
         Pizzas = new ArrayList<Pizza>();
-        Pizza p = new Pizza("gyros", 1400, 32, true);
+        Pizza p = new Pizza("Gyrosos", 1400, 32, true);
+        Pizza p1 = new Pizza("Margherita", 1200, 32, true);
+        Pizza p2 = new Pizza("Songoku", 1400,32, false);
+        
+        ArrayList<String> a = new ArrayList<>(){
+            {
+                add("Sonka");
+                add("Gomba");
+                add("Kukorica");
+            }
+        };
+        
+        p2.setTopping(a);
+        Pizzas.add(p2);
+        
+        ArrayList<String> feltet = new ArrayList<>(){
+            {
+                add("Mozarella");
+                add("Parmezan");
+                add("Paradicsom");
+            }
+        };
+        
+        p1.setTopping(feltet);
+        Pizzas.add(p1);
         
         ArrayList<String> topping = new ArrayList<>(){
             {
@@ -65,15 +89,20 @@ public class FXMLOrderSceneController implements Initializable {
         
         kosar = new ArrayList<Pizza>();
         loadKinalat();
+        
+        
     }
-    
+
+
     ArrayList<Pizza> Pizzas;
     ObservableList list = FXCollections.observableArrayList();
     String DateOfTheOrder;
     ArrayList<Pizza> kosar;
     boolean kipipalva;
     
-    ObservableList tmp = FXCollections.observableArrayList(); //a kipipált tétel
+    ArrayList<ObservableList> elemek = new ArrayList<>();
+    
+    //ObservableList tmp = FXCollections.observableArrayList(); //a kipipált tétel
     
    
     
@@ -89,7 +118,7 @@ public class FXMLOrderSceneController implements Initializable {
     @FXML
     private TextField addressbox;
 
-
+     
 
     // https://www.youtube.com/watch?v=gvBGu3mw7YU
     
@@ -115,20 +144,23 @@ public class FXMLOrderSceneController implements Initializable {
   
     @FXML
     void hozzaadClicked(ActionEvent event) {
-        if(kipipalva) //be van e pipálva a checkbox
-        {
-            
-            tmp.clear();
-            ArrayList<String> PizzasToString = new ArrayList<String>();
+        
+            list.clear();
+            /*ArrayList<String> PizzasToString = new ArrayList<String>();
             for (Pizza pizza : Pizzas) {
                 String s = pizza.toString();
                 PizzasToString.add(s);
             }
-            tmp.addAll(PizzasToString);
-            basket.getItems().addAll(tmp);
-                    
-        }
+            list.addAll(PizzasToString);
+            */
+            
+            list.add(kinalat.getSelectionModel().getSelectedItems());
+            
+            basket.getItems().addAll(list);
+           
+            
     }
+    
 
     @FXML
     void resetClicked(ActionEvent event) {
