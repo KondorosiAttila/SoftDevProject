@@ -24,6 +24,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import java.util.*;
+import javafx.scene.control.SelectionMode;
 
 /**
  * FXML Controller class
@@ -104,14 +105,14 @@ public class FXMLOrderSceneController implements Initializable {
     
     //ObservableList tmp = FXCollections.observableArrayList(); //a kipipált tétel
     
-   
+    
     
     @FXML
     private ListView<String> kinalat;
     
     @FXML
     private ListView<?> basket;
-
+    
     @FXML
     private TextField namebox;
 
@@ -141,6 +142,8 @@ public class FXMLOrderSceneController implements Initializable {
         kipipalva = true; 
     }
     
+    
+    
   
     @FXML
     void hozzaadClicked(ActionEvent event) {
@@ -154,7 +157,7 @@ public class FXMLOrderSceneController implements Initializable {
             list.addAll(PizzasToString);
             */
             
-            list.add(kinalat.getSelectionModel().getSelectedItems());
+            list.add(kinalat.getSelectionModel().getSelectedItem());
             
             basket.getItems().addAll(list);
            
