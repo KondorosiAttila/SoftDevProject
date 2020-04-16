@@ -19,11 +19,10 @@ public class Pizza {
     boolean extra;
     ArrayList<String> topping;
 
-    public Pizza(String name, int price, int size, boolean extra) {
+    public Pizza(String name, int price, int size) {
         this.name = name;
         this.price = price;
         this.size = size;
-        this.extra = true;
         this.topping = new ArrayList<String>();
         
     }
@@ -35,7 +34,7 @@ public class Pizza {
         return name;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -73,7 +72,7 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return name + " " + String.join(",", topping.toString()) + " " + "Méret: " + size + "cm " + "Ár: " + price + " Ft";
+        return name + " " + topping.toString() + " " + "Méret: " + size + " cm " + "Ár: " + price + " Ft";
     }
     
     

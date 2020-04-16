@@ -91,7 +91,7 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="namebox1" layoutX="386.0" layoutY="286.0" prefHeight="26.0" prefWidth="95.0" />
+                        <TextField fx:id="sumbox" layoutX="386.0" layoutY="286.0" prefHeight="26.0" prefWidth="95.0" />
                         <Label layoutX="402.0" layoutY="265.0" text="Kosár értéke:" />
                         <Label layoutX="159.0" layoutY="14.0" text="Kosár tartalma">
                            <font>

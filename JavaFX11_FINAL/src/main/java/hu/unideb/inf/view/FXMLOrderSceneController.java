@@ -31,9 +31,69 @@ import javafx.scene.control.SelectionMode;
  *
  * @author zolit
  */
+
+
 public class FXMLOrderSceneController implements Initializable {
+    
+    public static int sumOfPrices(int sum, int price)
+    {
+        return sum += price;
+    }
+    
+    public static Pizza toPizza(String sor)
+    {
+         
+        char c = '[';
+
+        sor = sor.replace(c, ';');
+        
+        c = ']';
+
+        
+        int db = 1;
+        for (int i = 0; i < sor.length(); i++) {
+            if(sor.charAt(i) == ',')
+            {
+                db++;
+            }
+        }
+        
+        System.out.println(db);
+        
+        sor = sor.replace(c, ';');
+        sor = sor.trim();
+        sor = sor.replace(" ", ";");
+        
+        String[] tmp = sor.split(";");
+
+        System.out.println(tmp.length);
+        
+        String name = tmp[1].trim();
+        ArrayList<String> topping = new ArrayList<>();
+      
+        
+        for (int i = 3; i < db+3; i++) {
+            
+            if(tmp[i].contains(","))
+            {
+                tmp[i] = tmp[i].replace(",", " ");
+            }
+            
+            topping.add(tmp[i].strip());
+        }
+        
+        int size = Integer.parseInt(tmp[tmp.length - 5]);
+        
+        int price = Integer.parseInt(tmp[tmp.length - 2]);
+        
+        Pizza p = new Pizza(name, price, size);
+        p.setTopping(topping);
+        
+        return p;
+    }
 
     private Model model;
+    public Integer osszeg = 0;
     
     /**
      * Initializes the controller class.
@@ -48,9 +108,11 @@ public class FXMLOrderSceneController implements Initializable {
             és kitenni a GUI-ra
         */
         Pizzas = new ArrayList<Pizza>();
-        Pizza p = new Pizza("Gyrosos", 1400, 32, true);
-        Pizza p1 = new Pizza("Margherita", 1200, 32, true);
-        Pizza p2 = new Pizza("Songoku", 1400,32, false);
+        Pizza p = new Pizza("Gyrosos", 1400, 32);
+        Pizza p1 = new Pizza("Margherita", 1200, 32);
+        Pizza p2 = new Pizza("Songoku", 1400,32);
+        
+        
         
         ArrayList<String> a = new ArrayList<>(){
             {
@@ -101,6 +163,8 @@ public class FXMLOrderSceneController implements Initializable {
     ArrayList<Pizza> kosar;
     boolean kipipalva;
     
+    
+    
     ArrayList<ObservableList> elemek = new ArrayList<>();
     
     //ObservableList tmp = FXCollections.observableArrayList(); //a kipipált tétel
@@ -119,6 +183,10 @@ public class FXMLOrderSceneController implements Initializable {
     @FXML
     private TextField addressbox;
 
+    @FXML
+    private TextField sumbox;
+
+
      
 
     // https://www.youtube.com/watch?v=gvBGu3mw7YU
@@ -133,6 +201,10 @@ public class FXMLOrderSceneController implements Initializable {
         }
         list.addAll(PizzasToString);
         kinalat.getItems().addAll(list);
+        
+        osszeg = 0;
+        
+        sumbox.setText(osszeg.toString());
     }
     
     
@@ -149,6 +221,8 @@ public class FXMLOrderSceneController implements Initializable {
     void hozzaadClicked(ActionEvent event) {
         
             list.clear();
+            String s;
+            Pizza p = new Pizza();
             /*ArrayList<String> PizzasToString = new ArrayList<String>();
             for (Pizza pizza : Pizzas) {
                 String s = pizza.toString();
@@ -159,9 +233,18 @@ public class FXMLOrderSceneController implements Initializable {
             
             list.add(kinalat.getSelectionModel().getSelectedItem());
             
+            
+            System.out.println(list);
+            
+            //FXMLOrderSceneController.toPizza(list.toString());
+            
             basket.getItems().addAll(list);
            
+            s = list.toString();
+            p = FXMLOrderSceneController.toPizza(s);
+            osszeg += p.getPrice();
             
+            sumbox.setText(osszeg.toString() + " Ft");
     }
     
 
@@ -194,8 +277,8 @@ public class FXMLOrderSceneController implements Initializable {
              * TODO
              * saveOrder(o);
              */
-        System.out.println(o.toString());
-        System.out.println("MEGRENDELÉS RÖGZÍTVE!");
+        //System.out.println(o.toString());
+        //System.out.println("MEGRENDELÉS RÖGZÍTVE!");
     }
     
     
