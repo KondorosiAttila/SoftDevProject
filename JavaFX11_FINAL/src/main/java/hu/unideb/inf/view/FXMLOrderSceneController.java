@@ -35,21 +35,15 @@ import javafx.scene.control.SelectionMode;
 
 public class FXMLOrderSceneController implements Initializable {
     
-    public static int sumOfPrices(int sum, int price)
-    {
-        return sum += price;
-    }
     
     public static Pizza toPizza(String sor)
-    {
-         
+    {  
         char c = '[';
 
         sor = sor.replace(c, ';');
         
         c = ']';
-
-        
+   
         int db = 1;
         for (int i = 0; i < sor.length(); i++) {
             if(sor.charAt(i) == ',')
@@ -70,8 +64,7 @@ public class FXMLOrderSceneController implements Initializable {
         
         String name = tmp[1].trim();
         ArrayList<String> topping = new ArrayList<>();
-      
-        
+         
         for (int i = 3; i < db+3; i++) {
             
             if(tmp[i].contains(","))
