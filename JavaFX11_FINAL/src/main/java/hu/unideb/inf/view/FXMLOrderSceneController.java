@@ -51,8 +51,7 @@ public class FXMLOrderSceneController implements Initializable {
                 db++;
             }
         }
-        
-        System.out.println(db);
+       
         
         sor = sor.replace(c, ';');
         sor = sor.trim();
@@ -60,8 +59,6 @@ public class FXMLOrderSceneController implements Initializable {
         
         String[] tmp = sor.split(";");
 
-        System.out.println(tmp.length);
-        
         String name = tmp[1].trim();
         ArrayList<String> topping = new ArrayList<>();
          
@@ -178,6 +175,15 @@ public class FXMLOrderSceneController implements Initializable {
 
     @FXML
     private TextField sumbox;
+    
+     @FXML
+    private TextField filter1;
+
+    @FXML
+    private TextField filter2;
+
+    @FXML
+    private TextField filter3;
 
 
      
@@ -243,13 +249,16 @@ public class FXMLOrderSceneController implements Initializable {
 
     @FXML
     void resetClicked(ActionEvent event) {
-
+        filter1.setText("");
+        filter2.setText("");
+        filter3.setText("");
     }
     
     @FXML
     void torlesClicked(ActionEvent event) {
         basket.getItems().clear();
-        
+        sumbox.setText("");
+        osszeg = 0;
     }
        
      @FXML
