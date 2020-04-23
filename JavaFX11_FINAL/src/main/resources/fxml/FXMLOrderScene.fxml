@@ -80,13 +80,13 @@
                            </font>
                         </Button>
                         <TextField fx:id="emailbox" layoutX="492.0" layoutY="128.0" prefHeight="26.0" prefWidth="205.0" />
-                        <TextField fx:id="phonebox" layoutX="493.0" layoutY="171.0" prefHeight="26.0" prefWidth="205.0" />
+                        <TextField fx:id="phonebox" layoutX="492.0" layoutY="184.0" prefHeight="26.0" prefWidth="205.0" />
                         <Label layoutX="434.0" layoutY="128.0" text="E-mail:">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="390.0" layoutY="171.0" text="Telefonszám:">
+                        <Label layoutX="390.0" layoutY="184.0" text="Telefonszám:">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -96,6 +96,16 @@
                         <Label layoutX="159.0" layoutY="14.0" text="Kosár tartalma">
                            <font>
                               <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="546.0" layoutY="154.0" text="(valami@valahol.com)">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="519.0" layoutY="210.0" text="(06xx-1234567, xx=20,30 vagy 70)">
+                           <font>
+                              <Font size="10.0" />
                            </font>
                         </Label>
                      </children></AnchorPane>

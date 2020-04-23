@@ -11,7 +11,6 @@ import hu.unideb.inf.model.Order;
 import hu.unideb.inf.model.Pizza;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -19,12 +18,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import java.util.*;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.Alert;
 
 /**
  * FXML Controller class
@@ -172,6 +169,12 @@ public class FXMLOrderSceneController implements Initializable {
 
     @FXML
     private TextField addressbox;
+    
+    @FXML
+    private TextField emailbox;
+
+    @FXML
+    private TextField phonebox;
 
     @FXML
     private TextField sumbox;
@@ -281,6 +284,25 @@ public class FXMLOrderSceneController implements Initializable {
              */
         //System.out.println(o.toString());
         //System.out.println("MEGRENDELÉS RÖGZÍTVE!");
+        
+        
+        //Now doing
+        String email = emailbox.getText();
+        String telefonszam = phonebox.getText();
+        Alert a  = new Alert(Alert.AlertType.WARNING);
+        
+        
+        if(!email.contains("@"))
+        {
+            
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Hiba!");
+            alert.setHeaderText("Nem érvényes e-mail cím!");
+            alert.setContentText("Próbáld meg 'valami@valahol.com/hu' formában");
+
+            alert.showAndWait();
+            
+        }
     }
     
     
