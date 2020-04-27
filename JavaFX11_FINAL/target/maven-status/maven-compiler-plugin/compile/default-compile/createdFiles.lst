@@ -7,5 +7,6 @@ hu\unideb\inf\model\Client.class
 hu\unideb\inf\model\Order.class
 hu\unideb\inf\view\FXMLOrderSceneController.class
 hu\unideb\inf\model\Pizza.class
+hu\unideb\inf\model\SaveManager.class
 hu\unideb\inf\MainApp.class
 hu\unideb\inf\model\Model.class

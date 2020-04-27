@@ -9,6 +9,7 @@ import hu.unideb.inf.model.Client;
 import hu.unideb.inf.model.Model;
 import hu.unideb.inf.model.Order;
 import hu.unideb.inf.model.Pizza;
+import hu.unideb.inf.model.SaveManager;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -88,13 +89,10 @@ public class FXMLOrderSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        /* 
-            itt be kellene tolteni a szerializalt pizzakat 
-            a Pizzas ArrayListbe
-            majd ezutan a loadKinalat metodusban Stringeket csinálni belőlük
-            és kitenni a GUI-ra
-        */
-        Pizzas = new ArrayList<Pizza>();
+        //Pizzas = new ArrayList<Pizza>();
+        
+        // fájlból olvasás implementálva
+        Pizzas = SaveManager.LoadProducts();
         Pizza p = new Pizza("Gyrosos", 1400, 32);
         Pizza p1 = new Pizza("Margherita", 1200, 32);
         Pizza p2 = new Pizza("Songoku", 1400,32);
