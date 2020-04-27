@@ -1,1 +1,7 @@
 Husimado:1500:32:paradicsomos alap:szalami:tarja:bacon:tojas:sajt
+Húsimádó:1500:32:paradicsomos alap:szalámi:tarja:bacon:tojás:sajt
+4 évszak:1650:32:pizzaszósz:sonka:kolbász:gomba:olíva:mozzarella sajt
+5 sajtos:1650:32:pizzaszósz:füstölt sajt:mozzarella sajt:feta sajt:parmezán sajt:edami sajt
+Florida:1500:32:mustáros-tejfölös alap:sonka:lila hagyma:mozzarella sajt
+Gladiátor:1550:32:4 sajt mártás alap:hagyma:szalámi:bab:kukorica:pepperóni:mozzarella sajt
+Hawaii:1400:32:4 sajt mártás alap:hagyma:szalámi:bab:kukorica:pepperóni:mozzarella sajt
