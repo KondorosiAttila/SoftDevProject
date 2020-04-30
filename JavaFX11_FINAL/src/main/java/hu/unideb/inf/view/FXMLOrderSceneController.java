@@ -148,15 +148,10 @@ public class FXMLOrderSceneController implements Initializable {
     ObservableList list = FXCollections.observableArrayList();
     String DateOfTheOrder;
     ArrayList<Pizza> kosar;
-    boolean kipipalva;
-    
-    
+   
     
     ArrayList<ObservableList> elemek = new ArrayList<>();
-    
-    //ObservableList tmp = FXCollections.observableArrayList(); //a kipipált tétel
-    
-    
+   
     
     @FXML
     private ListView<String> kinalat;
@@ -211,14 +206,6 @@ public class FXMLOrderSceneController implements Initializable {
     
     
     
-    @FXML
-    void checkedOnBox() {
-        kipipalva = true; 
-    }
-    
-    
-    
-  
     @FXML
     void hozzaadClicked(ActionEvent event) {
         
@@ -289,20 +276,17 @@ public class FXMLOrderSceneController implements Initializable {
         //Now doing
         String email = emailbox.getText();
         String telefonszam = phonebox.getText();
-        Alert a  = new Alert(Alert.AlertType.WARNING);
         
         
         if(!email.contains("@"))
         {
-            
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Hiba!");
             alert.setHeaderText("Nem érvényes e-mail cím!");
             alert.setContentText("Próbáld meg 'valami@valahol.com/hu' formában");
 
-            alert.showAndWait();
-            
-        }
+            alert.showAndWait();           
+        }    
     }
     
     
