@@ -44,10 +44,10 @@ public class SaveManager {
                 p.topping = topping;
                 kinalat.add(p);
             }
+            sc.close();
         } catch (FileNotFoundException ex) {
             System.out.println("FILE NEM TALALHATO");
         }
-        // betölteni 
         return kinalat;
     }
     
