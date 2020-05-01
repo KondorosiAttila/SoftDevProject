@@ -9,6 +9,7 @@ import hu.unideb.inf.model.Client;
 import hu.unideb.inf.model.Model;
 import hu.unideb.inf.model.Order;
 import hu.unideb.inf.model.Pizza;
+import hu.unideb.inf.model.SaveManager;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert;
+import javax.swing.text.View;
 
 /**
  * FXML Controller class
@@ -47,8 +49,7 @@ public class FXMLOrderSceneController implements Initializable {
             {
                 db++;
             }
-        }
-       
+        }       
         
         sor = sor.replace(c, ';');
         sor = sor.trim();
@@ -88,69 +89,19 @@ public class FXMLOrderSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        /* 
-            itt be kellene tolteni a szerializalt pizzakat 
-            a Pizzas ArrayListbe
-            majd ezutan a loadKinalat metodusban Stringeket csinálni belőlük
-            és kitenni a GUI-ra
-        */
-        Pizzas = new ArrayList<Pizza>();
-        Pizza p = new Pizza("Gyrosos", 1400, 32);
-        Pizza p1 = new Pizza("Margherita", 1200, 32);
-        Pizza p2 = new Pizza("Songoku", 1400,32);
+        //Pizzas = new ArrayList<Pizza>();
         
-        
-        
-        ArrayList<String> a = new ArrayList<>(){
-            {
-                add("Sonka");
-                add("Gomba");
-                add("Kukorica");
-            }
-        };
-        
-        p2.setTopping(a);
-        Pizzas.add(p2);
-        
-        ArrayList<String> feltet = new ArrayList<>(){
-            {
-                add("Mozarella");
-                add("Parmezan");
-                add("Paradicsom");
-            }
-        };
-        
-        p1.setTopping(feltet);
-        Pizzas.add(p1);
-        
-        ArrayList<String> topping = new ArrayList<>(){
-            {
-                add("Tarja");
-                add("Sonka");
-                add("Voroshagyma");
-                add("Lilahagyma");
-                add("Paradicsom");
-                add("Uborka");
-            }
-        };
-        p.setTopping(topping);
-        Pizzas.add(p);
-        
-        
+        // fájlból olvasás implementálva
+        Pizzas = SaveManager.LoadProducts();
+               
         kosar = new ArrayList<Pizza>();
-        loadKinalat();
-        
-        
+        loadKinalat();                
     }
-
 
     ArrayList<Pizza> Pizzas;
     ObservableList list = FXCollections.observableArrayList();
     String DateOfTheOrder;
     ArrayList<Pizza> kosar;
-   
-    
-    ArrayList<ObservableList> elemek = new ArrayList<>();
    
     
     @FXML
@@ -184,8 +135,6 @@ public class FXMLOrderSceneController implements Initializable {
     private TextField filter3;
 
 
-     
-
     // https://www.youtube.com/watch?v=gvBGu3mw7YU
     
     private void loadKinalat() {
@@ -202,38 +151,115 @@ public class FXMLOrderSceneController implements Initializable {
         osszeg = 0;
         
         sumbox.setText(osszeg.toString());
-    }
-    
-    
+    }    
     
     @FXML
     void hozzaadClicked(ActionEvent event) {
         
-            list.clear();
-            String s;
-            Pizza p = new Pizza();
-            /*ArrayList<String> PizzasToString = new ArrayList<String>();
-            for (Pizza pizza : Pizzas) {
-                String s = pizza.toString();
-                PizzasToString.add(s);
-            }
-            list.addAll(PizzasToString);
-            */
+        list.clear();
+        String s;
+        Pizza p = new Pizza();
+        /*ArrayList<String> PizzasToString = new ArrayList<String>();
+        for (Pizza pizza : Pizzas) {
+            String s = pizza.toString();
+            PizzasToString.add(s);
+        }
+        list.addAll(PizzasToString);
+        */
             
-            list.add(kinalat.getSelectionModel().getSelectedItem());
-            
-            
-            System.out.println(list);
-            
-            //FXMLOrderSceneController.toPizza(list.toString());
-            
-            basket.getItems().addAll(list);
+        list.add(kinalat.getSelectionModel().getSelectedItem());
            
-            s = list.toString();
-            p = FXMLOrderSceneController.toPizza(s);
-            osszeg += p.getPrice();
-            
-            sumbox.setText(osszeg.toString() + " Ft");
+        basket.getItems().addAll(list);
+           
+        s = list.toString();
+        p = FXMLOrderSceneController.toPizza(s);
+        osszeg += p.getPrice();
+           
+        sumbox.setText(osszeg.toString() + " Ft");
+    }
+       
+    @FXML
+    void keresClicked(ActionEvent event) {
+        
+        Pizza p;
+        String target = filter1.getText();
+        String target2 = filter2.getText();
+        String target3 = filter3.getText();
+        
+        if(target.length() == 0 && target2.length() == 0 && target3.length() == 0)
+        {
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setTitle("Hiba!");
+            a.setHeaderText("Rossz bevitel!");
+            a.setContentText("Ajd meg legalább egy szűrő feltételt!");
+
+            a.showAndWait();   
+        }
+        else{
+            loadKinalat();
+            list.clear();
+        
+        
+            if(target.length() > 0)
+            {
+                for (int i = 0; i < kinalat.getItems().size(); i++) {
+                    String sor = kinalat.getItems().get(i);
+                    p = FXMLOrderSceneController.toPizza(sor);
+
+                    for (String item : p.getTopping()) {
+                        //System.out.println(item.contains(sor) + " " + item + " " + sor);
+                        if(item.equals(target) || item.contains(target))
+                        {        
+                            if(!list.contains(sor))
+                            {
+                                list.add(sor);
+                            }
+                        }
+                    }
+                }     
+            }
+
+            if(target2.length() > 0)
+            {
+                for (int i = 0; i < kinalat.getItems().size(); i++) {
+                    String sor = kinalat.getItems().get(i);
+                    p = FXMLOrderSceneController.toPizza(sor);
+
+                    for (String item : p.getTopping()) {
+                        //System.out.println(item.contains(sor) + " " + item + " " + sor);
+                        if(item.equals(target2) || item.contains(target2))
+                        {        
+                            if(!list.contains(sor))
+                            {
+                                list.add(sor);
+                            }
+                        }
+                    }
+                }     
+            }
+
+            if(target3.length() > 0)
+            {
+                for (int i = 0; i < kinalat.getItems().size(); i++) {
+                    String sor = kinalat.getItems().get(i);
+                    p = FXMLOrderSceneController.toPizza(sor);
+
+                    for (String item : p.getTopping()) {
+                        //System.out.println(item.contains(sor) + " " + item + " " + sor);
+                        if(item.equals(target3) || item.contains(target3))
+                        {        
+                            if(!list.contains(sor))
+                            {
+                                list.add(sor);
+                            }
+                        }
+                    }
+                }
+            }
+
+            kinalat.getItems().clear();
+            kinalat.getItems().addAll(list);
+        }
     }
     
 
@@ -242,6 +268,9 @@ public class FXMLOrderSceneController implements Initializable {
         filter1.setText("");
         filter2.setText("");
         filter3.setText("");
+        
+        kinalat.getItems().clear();
+        loadKinalat();
     }
     
     @FXML

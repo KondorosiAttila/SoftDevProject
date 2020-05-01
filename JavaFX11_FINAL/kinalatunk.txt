@@ -1,0 +1,13 @@
+Husimado:1500:32:paradicsomos_alap:szalami:tarja:bacon:tojas:sajt
+4_evszak:1650:32:pizzaszosz:sonka:kolbasz:gomba:oliva:mozzarella_sajt
+5_sajtos:1650:32:pizzaszosz:fustolt_sajt:mozzarella_sajt:feta_sajt:parmezan_sajt:edami_sajt
+Florida:1500:32:mustaros-tejfolos_alap:sonka:lilahagyma:mozzarella_sajt
+Gladiator:1550:32:4_sajt_martas_alap:hagyma:szalami:bab:kukorica:pepperoni:mozzarella_sajt
+Hawaii:1400:32:4_sajt_martas_alap:hagyma:szalami:bab:kukorica:pepperoni:mozzarella_sajt
+Csibesz:1700:30:tejfolos_alap:csirke:bacon:tarja:eros_paprika:paradicsom:sajt
+Full_Inyenc:1700:30:pizzaszosz:sonka:paradicsom:olivabogyo:camembert_sajt:parmesan_sajt
+Fusti:1800:30:fokhagymas-tejfolos_alap:sonka:kolbasz:szalami:kukorica:csemege_uborka:fustolt_sajt
+Little_Burger:1800:30:burger_szoszos_alap:hamburgerhus:salata:csemege_uborka:lilahagyma:paradicsom:sajt
+Mega_Pizza:1500:30:pizzaszosz:sonka:bacon:kolbasz:hagyma:kukorica:sajt
+Pizza_LEON:1600:30:vegyes_borsos_sajtkremes_alap:grillcsirke:bacon:sult_hagyma:jalapeno:marvanysajt
+Vadasz_Pizza:1550:30:fokhagymasÍ_tejfolos_alap:csirke:gomba:eros_paprika:lilahagyma:marvanysajt
