@@ -10,4 +10,4 @@ Fusti:1800:30:fokhagymas-tejfolos_alap:sonka:kolbasz:szalami:kukorica:csemege_ub
 Little_Burger:1800:30:burger_szoszos_alap:hamburgerhus:salata:csemege_uborka:lilahagyma:paradicsom:sajt
 Mega_Pizza:1500:30:pizzaszosz:sonka:bacon:kolbasz:hagyma:kukorica:sajt
 Pizza_LEON:1600:30:vegyes_borsos_sajtkremes_alap:grillcsirke:bacon:sult_hagyma:jalapeno:marvanysajt
-Vadasz_Pizza:1550:30:fokhagymasÍ_tejfolos_alap:csirke:gomba:eros_paprika:lilahagyma:marvanysajt
+Vadasz_Pizza:1550:30:fokhagymas_tejfolos_alap:csirke:gomba:eros_paprika:lilahagyma:marvanysajt

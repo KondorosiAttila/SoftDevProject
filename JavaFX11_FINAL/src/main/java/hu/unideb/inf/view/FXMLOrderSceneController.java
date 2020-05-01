@@ -31,9 +31,19 @@ import javax.swing.text.View;
  * @author zolit
  */
 
-
 public class FXMLOrderSceneController implements Initializable {
-    
+        
+    public boolean isPhoneNumberOK(String s)
+    {
+        if(s.contains("0620-") || s.contains("0630-") || s.contains("0670-"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     
     public static Pizza toPizza(String sor)
     {  
@@ -172,7 +182,7 @@ public class FXMLOrderSceneController implements Initializable {
         basket.getItems().addAll(list);
            
         s = list.toString();
-        p = FXMLOrderSceneController.toPizza(s);
+        p = toPizza(s);
         osszeg += p.getPrice();
            
         sumbox.setText(osszeg.toString() + " Ft");
@@ -204,7 +214,7 @@ public class FXMLOrderSceneController implements Initializable {
             {
                 for (int i = 0; i < kinalat.getItems().size(); i++) {
                     String sor = kinalat.getItems().get(i);
-                    p = FXMLOrderSceneController.toPizza(sor);
+                    p = toPizza(sor);
 
                     for (String item : p.getTopping()) {
                         //System.out.println(item.contains(sor) + " " + item + " " + sor);
@@ -223,7 +233,7 @@ public class FXMLOrderSceneController implements Initializable {
             {
                 for (int i = 0; i < kinalat.getItems().size(); i++) {
                     String sor = kinalat.getItems().get(i);
-                    p = FXMLOrderSceneController.toPizza(sor);
+                    p = toPizza(sor);
 
                     for (String item : p.getTopping()) {
                         //System.out.println(item.contains(sor) + " " + item + " " + sor);
@@ -242,7 +252,7 @@ public class FXMLOrderSceneController implements Initializable {
             {
                 for (int i = 0; i < kinalat.getItems().size(); i++) {
                     String sor = kinalat.getItems().get(i);
-                    p = FXMLOrderSceneController.toPizza(sor);
+                    p = toPizza(sor);
 
                     for (String item : p.getTopping()) {
                         //System.out.println(item.contains(sor) + " " + item + " " + sor);
@@ -300,22 +310,36 @@ public class FXMLOrderSceneController implements Initializable {
              */
         //System.out.println(o.toString());
         //System.out.println("MEGRENDELÉS RÖGZÍTVE!");
-        
-        
+                
         //Now doing
         String email = emailbox.getText();
         String telefonszam = phonebox.getText();
         
         
-        if(!email.contains("@"))
+        if(!email.contains("@") || !isPhoneNumberOK(telefonszam))
         {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Hiba!");
-            alert.setHeaderText("Nem érvényes e-mail cím!");
-            alert.setContentText("Próbáld meg 'valami@valahol.com/hu' formában");
+            if(!isPhoneNumberOK(telefonszam))
+            {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Hiba!");
+                alert.setHeaderText("Nem érvényes telefonszám!");
+                alert.setContentText("Próbáld meg '06xx-1234567 (xx = 20, 30, 70)' formában");
 
-            alert.showAndWait();           
+                alert.showAndWait();   
+            }
+            else
+            {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Hiba!");
+                alert.setHeaderText("Nem érvényes e-mail cím!");
+                alert.setContentText("Próbáld meg 'valami@valahol.com/hu' formában");
+
+                alert.showAndWait();   
+            }
         }    
+        else{
+            //rendelés file-ba mentése
+        }
     }
     
     
