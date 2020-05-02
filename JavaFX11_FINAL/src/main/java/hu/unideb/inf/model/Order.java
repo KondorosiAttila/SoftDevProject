@@ -10,6 +10,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -21,7 +22,21 @@ public class Order implements Serializable{
     Client client;
     LocalDate date;
     ArrayList<Pizza> orderlist;
+    String id;
 
+    public static String settingId() {
+        String[] d = LocalDate.now().toString().split("-");
+        String[] s = LocalTime.now().toString().split("[:.]");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 3; i++) {
+            sb.append(d[i]);
+        }
+        for (int i = 0; i < s.length-1; i++) {
+            sb.append(s[i]);
+        }
+        return sb.toString();
+    } 
+    
     public Order() {
     }
 
@@ -29,10 +44,9 @@ public class Order implements Serializable{
         this.client = client;
         this.orderlist = orderlist;
         this.date = date;
+        this.id = Order.settingId();
     }
     
-    
-
     public Client getClient() {
         return client;
     }
@@ -56,15 +70,21 @@ public class Order implements Serializable{
     public void setDate(LocalDate date) {
         this.date = date;
     }
-    
-    /* TODO */
-     private void writeOrder(ObjectOutputStream s) throws IOException {
-        
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.id).append(":").append(this.client.name);
+        sb.append("(").append(this.client.phonenumber).append("): ");
+        for(Pizza p : this.orderlist)
+        {
+            if(this.orderlist.indexOf(p) != 0) {
+                sb.append(", ");
+            }
+            sb.append(p.name);
+        }
+        return sb.toString();
     }
 
-    private void readOrder(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        
-    }
-    
     
 }

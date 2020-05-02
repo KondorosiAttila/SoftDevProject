@@ -5,6 +5,7 @@
  */
 package hu.unideb.inf.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import javafx.beans.property.StringProperty;
 
@@ -12,7 +13,7 @@ import javafx.beans.property.StringProperty;
  * Pizza osztaly
  * @author zolit
  */
-public class Pizza {
+public class Pizza implements Serializable {
     String name;
     int price;
     int size;
@@ -74,9 +75,5 @@ public class Pizza {
     public String toString() {
         return name + " " + topping.toString() + " " + "Méret: " + size + " cm " + "Ár: " + price + " Ft";
     }
-    
-    
-    
-    
     
 }
