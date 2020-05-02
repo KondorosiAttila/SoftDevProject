@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hu.unideb.inf.model;
 
 import java.io.File;
@@ -16,22 +11,32 @@ import java.util.logging.Logger;
  *
  * @author zolit
  */
-public class SaveManager {
+public class OrderDAO {
 
-    public static void SaveOrder() {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /*
+        TODO
+    */
+    public static void SaveOrder(Order order) {
+        
     }
 
+    /*
+        TODO
+    */
     public static ArrayList<Pizza> LoadOrders() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
-    public static ArrayList<Pizza> LoadProducts() {
+    /*
+        A metódus a kinalatunk.txt szöveges fájlból betölti a termékek (Pizzák)
+        adatait, és visszaad egy Pizza objektumokat tartalmazó ArrayList-et
+    */
+    public static ArrayList<Pizza> loadProducts() {
         ArrayList<Pizza> kinalat = new ArrayList<Pizza>();
         // itt kellene txt-t nyitni, kiolvasni a pizza adatokat
         File file = new File("kinalatunk.txt");
         try {
-            Scanner sc = new Scanner(file);
+            Scanner sc = new Scanner(file, "UTF-8"); // ékezeteket is megjeleníti
             while(sc.hasNextLine())
             {
                 String datas[] = sc.nextLine().split(":");

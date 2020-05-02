@@ -9,7 +9,7 @@ import hu.unideb.inf.model.Client;
 import hu.unideb.inf.model.Model;
 import hu.unideb.inf.model.Order;
 import hu.unideb.inf.model.Pizza;
-import hu.unideb.inf.model.SaveManager;
+import hu.unideb.inf.model.OrderDAO;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -102,7 +102,7 @@ public class FXMLOrderSceneController implements Initializable {
         //Pizzas = new ArrayList<Pizza>();
         
         // fájlból olvasás implementálva
-        Pizzas = SaveManager.LoadProducts();
+        Pizzas = OrderDAO.loadProducts();
                
         kosar = new ArrayList<Pizza>();
         loadKinalat();                

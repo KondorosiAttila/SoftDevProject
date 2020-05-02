@@ -1,4 +1,4 @@
-Husimado:1500:32:paradicsomos_alap:szalami:tarja:bacon:tojas:sajt
+Húsimádó:1500:32:paradicsomos_alap:szalami:tarja:bacon:tojas:sajt
 4_evszak:1650:32:pizzaszosz:sonka:kolbasz:gomba:oliva:mozzarella_sajt
 5_sajtos:1650:32:pizzaszosz:fustolt_sajt:mozzarella_sajt:feta_sajt:parmezan_sajt:edami_sajt
 Florida:1500:32:mustaros-tejfolos_alap:sonka:lilahagyma:mozzarella_sajt
