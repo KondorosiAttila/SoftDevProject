@@ -300,14 +300,6 @@ public class FXMLOrderSceneController implements Initializable {
     
     @FXML
     void sendOrder(ActionEvent event) {
-        
-        Client c = new Client(namebox.getText(), addressbox.getText());
-        LocalDate d = LocalDate.now();
-        Order o = new Order(c, kosar, d);
-            /**
-             * TODO
-             * saveOrder(o);
-             */
         //System.out.println(o.toString());
         //System.out.println("MEGRENDELÉS RÖGZÍTVE!");
                 
@@ -315,7 +307,9 @@ public class FXMLOrderSceneController implements Initializable {
         String email = emailbox.getText();
         String telefonszam = phonebox.getText();
         
-        
+        Client c = new Client(namebox.getText(), addressbox.getText(), email, telefonszam);
+        LocalDate d = LocalDate.now();
+        Order o = new Order(c, kosar, d);
         if(!email.contains("@") || !isPhoneNumberOK(telefonszam))
         {
             if(!isPhoneNumberOK(telefonszam))
@@ -339,6 +333,15 @@ public class FXMLOrderSceneController implements Initializable {
         }    
         else{
             //rendelés file-ba mentése
+            OrderDAO.SaveOrder(o);
+            System.out.println("Rendelés leadva!");
+            System.out.println(o);
+            
+            /*
+                itt kellene a kosarat nullázni,
+                meg talán a megrendelő adatainál a mezőket
+                esetleg egy visszajelzés a GUI-n, hogy "sikeres megrendelés"
+            */
         }
     }
     
