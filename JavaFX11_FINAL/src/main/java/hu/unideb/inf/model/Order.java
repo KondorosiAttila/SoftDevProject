@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hu.unideb.inf.model;
 
 import java.io.IOException;
@@ -16,9 +11,11 @@ import javafx.beans.property.SimpleStringProperty;
 
 /**
  * Rendelés = megrendelő, dátum, vásárolt termékek listája
+ *
  * @author zolit
  */
-public class Order implements Serializable{
+public class Order implements Serializable {
+
     Client client;
     LocalDate date;
     ArrayList<Pizza> orderlist;
@@ -31,12 +28,12 @@ public class Order implements Serializable{
         for (int i = 0; i < 3; i++) {
             sb.append(d[i]);
         }
-        for (int i = 0; i < s.length-1; i++) {
+        for (int i = 0; i < s.length - 1; i++) {
             sb.append(s[i]);
         }
         return sb.toString();
-    } 
-    
+    }
+
     public Order() {
     }
 
@@ -46,7 +43,7 @@ public class Order implements Serializable{
         this.date = date;
         this.id = Order.settingId();
     }
-    
+
     public Client getClient() {
         return client;
     }
@@ -76,15 +73,17 @@ public class Order implements Serializable{
         StringBuilder sb = new StringBuilder();
         sb.append(this.id).append(":").append(this.client.name);
         sb.append("(").append(this.client.phonenumber).append("): ");
-        for(Pizza p : this.orderlist)
-        {
-            if(this.orderlist.indexOf(p) != 0) {
-                sb.append(", ");
+        if (this.orderlist.size() != 0) {
+            for (Pizza p : this.orderlist) {
+                if (this.orderlist.indexOf(p) != 0) {
+                    sb.append(", ");
+                }
+                sb.append(p.name);
             }
-            sb.append(p.name);
+        }
+        else {
+            sb.append("Üres kosár!");
         }
         return sb.toString();
     }
-
-    
 }

@@ -18,9 +18,6 @@ public class MainApp extends Application {
         Scene scene = new Scene(loader.load());
         stage.setTitle("Pizza Kingz");
         stage.setScene(scene);
-        
-        //((FXMLOrderSceneController)loader.getController()).setModel(new Model());
-        
         stage.show();
     }
 
@@ -35,5 +32,4 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 }
