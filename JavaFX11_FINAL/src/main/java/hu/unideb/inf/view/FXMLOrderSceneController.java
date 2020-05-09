@@ -32,7 +32,59 @@ import javax.swing.text.View;
  */
 
 public class FXMLOrderSceneController implements Initializable {
+    
+    private Model model; // DONT TOUCH THIS !
+    public Integer osszeg = 0;
+    ArrayList<Pizza> Pizzas;
+    ObservableList list = FXCollections.observableArrayList();
+    String DateOfTheOrder;
+    ArrayList<Pizza> kosar;
+   
+    @FXML
+    private ListView<String> kinalat;
+    
+    @FXML
+    private ListView<?> basket;
+    
+    @FXML
+    private TextField namebox;
+
+    @FXML
+    private TextField addressbox;
+    
+    @FXML
+    private TextField emailbox;
+
+    @FXML
+    private TextField phonebox;
+
+    @FXML
+    private TextField sumbox;
+    
+     @FXML
+    private TextField filter1;
+
+    @FXML
+    private TextField filter2;
+
+    @FXML
+    private TextField filter3;
+    
+     /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+        //Pizzas = new ArrayList<Pizza>();
         
+        // fájlból olvasás implementálva
+        Pizzas = OrderDAO.loadProducts();
+               
+        kosar = new ArrayList<Pizza>();
+        loadKinalat();                
+    }
+    
     public boolean isPhoneNumberOK(String s)
     {
         if(s.contains("0620-") || s.contains("0630-") || s.contains("0670-"))
@@ -90,63 +142,11 @@ public class FXMLOrderSceneController implements Initializable {
         return p;
     }
 
-    private Model model;
-    public Integer osszeg = 0;
-    
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        //Pizzas = new ArrayList<Pizza>();
-        
-        // fájlból olvasás implementálva
-        Pizzas = OrderDAO.loadProducts();
-               
-        kosar = new ArrayList<Pizza>();
-        loadKinalat();                
-    }
-
-    ArrayList<Pizza> Pizzas;
-    ObservableList list = FXCollections.observableArrayList();
-    String DateOfTheOrder;
-    ArrayList<Pizza> kosar;
-   
-    
-    @FXML
-    private ListView<String> kinalat;
-    
-    @FXML
-    private ListView<?> basket;
-    
-    @FXML
-    private TextField namebox;
-
-    @FXML
-    private TextField addressbox;
-    
-    @FXML
-    private TextField emailbox;
-
-    @FXML
-    private TextField phonebox;
-
-    @FXML
-    private TextField sumbox;
-    
-     @FXML
-    private TextField filter1;
-
-    @FXML
-    private TextField filter2;
-
-    @FXML
-    private TextField filter3;
-
-
     // https://www.youtube.com/watch?v=gvBGu3mw7YU
-    
+    /*
+        A metódus betölti "list" nevű ObservableListbe a kínálatot.
+        
+    */
     private void loadKinalat() {
         //list.removeAll(list);
         list.clear();
@@ -176,11 +176,25 @@ public class FXMLOrderSceneController implements Initializable {
         }
         list.addAll(PizzasToString);
         */
-            
-        list.add(kinalat.getSelectionModel().getSelectedItem());
-           
-        basket.getItems().addAll(list);
-           
+        /* itt van a megoldas */
+        String mystring = kinalat.getSelectionModel().getSelectedItem();
+        String pizzaneve = mystring.split(" ")[0];
+        Pizza myPizza = new Pizza();
+        for(Pizza x : Pizzas)
+        {
+            if(x.getName().equals(pizzaneve))
+            {
+                myPizza = x;
+                break;
+            }
+        }
+        kosar.add(myPizza);
+        System.out.println(mystring);
+        
+        
+        //
+        list.add(kinalat.getSelectionModel().getSelectedItem());   
+        basket.getItems().addAll(list);   
         s = list.toString();
         p = toPizza(s);
         osszeg += p.getPrice();
@@ -286,6 +300,7 @@ public class FXMLOrderSceneController implements Initializable {
     @FXML
     void torlesClicked(ActionEvent event) {
         basket.getItems().clear();
+        kosar.clear();
         sumbox.setText("");
         osszeg = 0;
     }
@@ -294,6 +309,7 @@ public class FXMLOrderSceneController implements Initializable {
     void addSelected(MouseEvent event) {
         String s = kinalat.getSelectionModel().getSelectedItem();
         System.out.println(s);
+        
     }
     
     /* MINTA */
@@ -309,6 +325,8 @@ public class FXMLOrderSceneController implements Initializable {
         
         Client c = new Client(namebox.getText(), addressbox.getText(), email, telefonszam);
         LocalDate d = LocalDate.now();
+        
+        
         Order o = new Order(c, kosar, d);
         if(!email.contains("@") || !isPhoneNumberOK(telefonszam))
         {
@@ -327,7 +345,6 @@ public class FXMLOrderSceneController implements Initializable {
                 alert.setTitle("Hiba!");
                 alert.setHeaderText("Nem érvényes e-mail cím!");
                 alert.setContentText("Próbáld meg 'valami@valahol.com/hu' formában");
-
                 alert.showAndWait();   
             }
         }    
@@ -337,11 +354,18 @@ public class FXMLOrderSceneController implements Initializable {
             System.out.println("Rendelés leadva!");
             System.out.println(o);
             
-            /*
-                itt kellene a kosarat nullázni,
-                meg talán a megrendelő adatainál a mezőket
-                esetleg egy visszajelzés a GUI-n, hogy "sikeres megrendelés"
-            */
+            kosar.clear();
+            basket.getItems().clear();
+            namebox.clear();
+            addressbox.clear();
+            phonebox.clear();
+            emailbox.clear();
+            osszeg = 0;
+            
+            Alert myalert = new Alert(Alert.AlertType.WARNING);
+            myalert.setTitle("SIKER");
+            myalert.setHeaderText("Rendelés sikeresen rögzítve!");
+            myalert.showAndWait();
         }
     }
     
@@ -349,7 +373,7 @@ public class FXMLOrderSceneController implements Initializable {
     
     
     
-
+// DONT TOUCH THIS !
     public void setModel(Model model) {
         this.model = model;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
