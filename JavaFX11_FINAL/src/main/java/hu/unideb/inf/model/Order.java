@@ -20,6 +20,7 @@ public class Order implements Serializable {
     LocalDate date;
     ArrayList<Pizza> orderlist;
     String id;
+    int pricesum;
 
     public static String settingId() {
         String[] d = LocalDate.now().toString().split("-");
@@ -37,11 +38,39 @@ public class Order implements Serializable {
     public Order() {
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getPricesum() {
+        return pricesum;
+    }
+
+    public void setPricesum(int pricesum) {
+        this.pricesum = pricesum;
+    }
+
+    
+    
+    public static int calculateprice(ArrayList<Pizza> orderlist)
+    {
+        int sum = 0;
+        for(Pizza p : orderlist)
+        {
+            sum += p.price;
+        }
+        return sum;
+    }
     public Order(Client client, ArrayList<Pizza> orderlist, LocalDate date) {
         this.client = client;
         this.orderlist = orderlist;
         this.date = date;
         this.id = Order.settingId();
+        this.pricesum = Order.calculateprice(orderlist);
     }
 
     public Client getClient() {
@@ -72,11 +101,12 @@ public class Order implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.id).append(":").append(this.client.name);
-        sb.append("(").append(this.client.phonenumber).append("): ");
+        sb.append(":").append(this.client.phonenumber).append(":");
+        sb.append(this.pricesum).append(":");
         if (this.orderlist.size() != 0) {
             for (Pizza p : this.orderlist) {
                 if (this.orderlist.indexOf(p) != 0) {
-                    sb.append(", ");
+                    sb.append(",");
                 }
                 sb.append(p.name);
             }

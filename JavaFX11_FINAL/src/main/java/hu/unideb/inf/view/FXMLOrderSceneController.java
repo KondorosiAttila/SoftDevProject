@@ -308,11 +308,23 @@ public class FXMLOrderSceneController implements Initializable {
      @FXML
     void addSelected(MouseEvent event) {
         String s = kinalat.getSelectionModel().getSelectedItem();
-        System.out.println(s);
+        //System.out.println(s);
         
     }
     
-    /* MINTA */
+    @FXML
+    private ListView<?> AllOrders;
+    
+    ObservableList allorderobslist = FXCollections.observableArrayList();
+    
+     @FXML
+    void RefreshAllOrderTab(ActionEvent event) {
+        allorderobslist.clear();
+        AllOrders.getItems().clear();
+        ArrayList<Order> allorderlist = OrderDAO.LoadOrders();
+        allorderobslist.addAll(allorderlist);
+        AllOrders.getItems().addAll(allorderobslist);
+    }
     
     @FXML
     void sendOrder(ActionEvent event) {
@@ -353,19 +365,21 @@ public class FXMLOrderSceneController implements Initializable {
             OrderDAO.SaveOrder(o);
             System.out.println("Rendelés leadva!");
             System.out.println(o);
-            
+            Alert myalert = new Alert(Alert.AlertType.CONFIRMATION);
+            myalert.setTitle("SIKER");
+            myalert.setHeaderText("Rendelés sikeresen rögzítve!");
+            myalert.setContentText(o.toString() + "\n" + osszeg + " Ft");
+            myalert.showAndWait();
             kosar.clear();
             basket.getItems().clear();
             namebox.clear();
             addressbox.clear();
             phonebox.clear();
             emailbox.clear();
+            sumbox.clear();
             osszeg = 0;
             
-            Alert myalert = new Alert(Alert.AlertType.WARNING);
-            myalert.setTitle("SIKER");
-            myalert.setHeaderText("Rendelés sikeresen rögzítve!");
-            myalert.showAndWait();
+            
         }
     }
     

@@ -1,9 +1,13 @@
 package hu.unideb.inf.model;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -28,7 +32,7 @@ public class OrderDAO {
      * OrderListSave.ser fileba.
      */
     public static void SaveOrder(Order order){
-
+        /*
         try
         {
             FileOutputStream fos = new FileOutputStream("OrderListSaved.ser", true);
@@ -41,6 +45,17 @@ public class OrderDAO {
         {
             ioe.printStackTrace();
         }
+        */
+        String orderline = order.toString();
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("orderlistsave_bw.txt", true));
+            bw.write(orderline);
+            bw.newLine();
+            bw.close();
+        } catch (IOException ex) {
+            //Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }    
     }
 
     /** 
@@ -50,14 +65,50 @@ public class OrderDAO {
     public static ArrayList<Order> LoadOrders() {
         
         ArrayList<Order> retvalue = new ArrayList<Order>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("orderlistsave_bw.txt"));
+            String line;
+            while(true){
+                line = br.readLine();
+                if(line == null)
+                    break;
+                Order o = new Order();
+                String[] items = line.split(":");
+                o.id = items[0];
+                o.client = new Client();
+                o.client.name = items[1];
+                o.client.phonenumber = items[2];
+                o.pricesum = Integer.parseInt(items[3]);
+                String[] pizzalist = items[4].split(",");
+                ArrayList<Pizza> thispizzalist = new ArrayList<Pizza>();
+                ArrayList<Pizza> kinalat = OrderDAO.loadProducts();
+                for(int i = 0; i < pizzalist.length; i++){
+                    for(Pizza p : kinalat) {
+                        if(p.name.equals(pizzalist[i]))
+                            thispizzalist.add(p);
+                    }
+                }
+                o.orderlist = thispizzalist;
+                retvalue.add(o);               
+            }
+            br.close();
+        } catch (IOException ex) {
+            //Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }    
+        
+        /*
         Order o = new Order();
         try
         {
             FileInputStream fis = new FileInputStream("OrderListSaved.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            while((o = (Order) ois.readObject()) != null)
-            {
+            // while((o = (Order) ois.readObject()) != null){
+            int i = 0;
+            while(i < 5){
+                o = (Order) ois.readObject();               
                 retvalue.add(o);
+                i++;
             }
             ois.close();
             fis.close();
@@ -71,7 +122,7 @@ public class OrderDAO {
             System.out.println("Class not found");
             cnfe.printStackTrace();
         }
-        
+        */
         return retvalue;
     }
 
