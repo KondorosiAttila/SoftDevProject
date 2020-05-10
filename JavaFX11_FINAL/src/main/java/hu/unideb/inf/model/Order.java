@@ -102,6 +102,8 @@ public class Order implements Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append(this.id).append(":").append(this.client.name);
         sb.append(":").append(this.client.phonenumber).append(":");
+        sb.append(this.client.address).append(":");
+        sb.append(this.client.email).append(":");
         sb.append(this.pricesum).append(":");
         if (this.orderlist.size() != 0) {
             for (Pizza p : this.orderlist) {

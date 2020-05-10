@@ -317,6 +317,12 @@ public class FXMLOrderSceneController implements Initializable {
     
     ObservableList allorderobslist = FXCollections.observableArrayList();
     
+    @FXML
+    private TextField incomeSum;
+
+    @FXML
+    private TextField mean;
+    
      @FXML
     void RefreshAllOrderTab(ActionEvent event) {
         allorderobslist.clear();
@@ -324,6 +330,15 @@ public class FXMLOrderSceneController implements Initializable {
         ArrayList<Order> allorderlist = OrderDAO.LoadOrders();
         allorderobslist.addAll(allorderlist);
         AllOrders.getItems().addAll(allorderobslist);
+        double sum = 0;
+        for(Order r : allorderlist)
+        {
+            sum += r.getPricesum();
+        }
+        incomeSum.setText("" + sum + "Ft");
+        double calcmean = sum / allorderlist.size();
+        mean.setText("" + calcmean + "Ft");
+       
     }
     
     @FXML

@@ -1,4 +1,4 @@
-20200509231635:Teszt Elek:0630-6969420:1650:5_sajtos
-20200509232157:Teszt Elek:0630-6969420:1500:Florida
-20200509232755:dasdsa:0630-30303010:4800:Florida,Mega_Pizza,Little_Burger
-20200509232916:Teszt Elek:0630-6969420:5050:Csibesz,Gladiator,Fusti
+20200510141213:Teszt Elek:0630-6969420:Minta utca 11:tesztemail@gmail.com:6350:Florida,Little_Burger,Mega_Pizza,Gladiator
+20200510142112:Teszt Elek:0620-20201100:Minta utca 11:teszt@gmail.com:1650:5_sajtos
+20200510142550:Teszt Elek:0630-6969420:Minta utca 9999:teszt@mail.com:1400:Hawaii
+20200510142759:Ékezetes Név:0630-3004001:teniszütõ tér 23:asdasda@mail.com:1500:Florida

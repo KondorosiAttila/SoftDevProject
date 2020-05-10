@@ -54,6 +54,7 @@ public class OrderDAO {
             bw.close();
         } catch (IOException ex) {
             //Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("FILE NEM TALALHATO");
             ex.printStackTrace();
         }    
     }
@@ -78,8 +79,10 @@ public class OrderDAO {
                 o.client = new Client();
                 o.client.name = items[1];
                 o.client.phonenumber = items[2];
-                o.pricesum = Integer.parseInt(items[3]);
-                String[] pizzalist = items[4].split(",");
+                o.client.address = items[3];
+                o.client.email = items[4];
+                o.pricesum = Integer.parseInt(items[5]);
+                String[] pizzalist = items[6].split(",");
                 ArrayList<Pizza> thispizzalist = new ArrayList<Pizza>();
                 ArrayList<Pizza> kinalat = OrderDAO.loadProducts();
                 for(int i = 0; i < pizzalist.length; i++){
@@ -94,6 +97,7 @@ public class OrderDAO {
             br.close();
         } catch (IOException ex) {
             //Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("FILE NEM TALALHATO");
             ex.printStackTrace();
         }    
         

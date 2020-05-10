@@ -126,6 +126,10 @@
                            </children>
                         </VBox>
                         <Button layoutX="91.0" layoutY="338.0" mnemonicParsing="false" onAction="#RefreshAllOrderTab" text="Frissítés" />
+                        <TextField fx:id="incomeSum" alignment="CENTER" layoutX="46.0" layoutY="95.0" prefHeight="25.0" prefWidth="162.0" />
+                        <TextField fx:id="mean" alignment="CENTER" layoutX="46.0" layoutY="161.0" prefHeight="25.0" prefWidth="161.0" />
+                        <Label alignment="CENTER" layoutX="46.0" layoutY="70.0" prefHeight="17.0" prefWidth="149.0" text="Bevétel" />
+                        <Label alignment="CENTER" layoutX="42.0" layoutY="137.0" prefHeight="17.0" prefWidth="153.0" text="Egy vásárlás átlagos értéke" />
                      </children>
                   </AnchorPane>
               </content>
