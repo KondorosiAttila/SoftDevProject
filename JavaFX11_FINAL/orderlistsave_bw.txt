@@ -2,3 +2,6 @@
 20200510142112:Teszt Elek:0620-20201100:Minta utca 11:teszt@gmail.com:1650:5_sajtos
 20200510142550:Teszt Elek:0630-6969420:Minta utca 9999:teszt@mail.com:1400:Hawaii
 20200510142759:Ékezetes Név:0630-3004001:teniszütõ tér 23:asdasda@mail.com:1500:Florida
+20200512130310:ddd:0670-23456789:ss:s@g:3500:Csibesz,Fusti
+20200512132355:Pepszi Béla:0620-0123456:Kukutyin :amigtartabor@azenbiciklim:2950:Hawaii,Gladiator
+20200512161807:Alfonz:0630-0123456:Budapest:abc@gmail.com:3250:Gladiator,Full_Ínyenc

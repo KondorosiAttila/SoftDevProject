@@ -14,41 +14,41 @@
    <children>
       <TabPane prefHeight="479.0" prefWidth="820.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Rendelés">
+          <Tab style="fx-background-color: #cec9bb;" text="Rendelés">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c26538;">
                      <children>
                         <VBox layoutX="14.0" layoutY="53.0" prefHeight="289.0" prefWidth="246.0">
                            <children>
-                              <ListView fx:id="kinalat" maxWidth="-Infinity" minWidth="-Infinity" onMouseClicked="#addSelected" prefHeight="309.0" prefWidth="416.0" />
+                              <ListView fx:id="kinalat" maxWidth="-Infinity" minWidth="-Infinity" onMouseClicked="#addSelected" prefHeight="309.0" prefWidth="416.0" style="-fx-background-color: #cec9bb;" />
                            </children>
                         </VBox>
-                        <Button layoutX="442.0" layoutY="276.0" mnemonicParsing="false" onAction="#hozzaadClicked" text="Hozzáad">
+                        <Button layoutX="442.0" layoutY="276.0" mnemonicParsing="false" onAction="#hozzaadClicked" style="-fx-background-color: #cec9bb;" text="Hozzáad" textFill="#461b1b">
                            <font>
-                              <Font name="Comic Sans MS Bold" size="12.0" />
+                              <Font name="Gabriola" size="18.0" />
                            </font>
                         </Button>
-                        <Button layoutX="541.0" layoutY="198.0" mnemonicParsing="false" onAction="#resetClicked" text="RESET">
+                        <Button layoutX="622.0" layoutY="197.0" mnemonicParsing="false" onAction="#resetClicked" prefHeight="35.0" prefWidth="62.0" style="-fx-background-color: #cec9bb;" text="RESET" textFill="#461b1b">
                            <font>
-                              <Font name="Comic Sans MS Bold" size="12.0" />
+                              <Font name="Gabriola" size="18.0" />
                            </font>
                         </Button>
-                        <Label layoutX="81.0" layoutY="13.0" text="Választható Pizzák listája" textAlignment="CENTER" underline="true">
+                        <Label layoutX="73.0" layoutY="14.0" text="Választható Pizzák listája" textAlignment="CENTER" textFill="#461b1b" underline="true">
                            <font>
-                              <Font name="Calibri Italic" size="29.0" />
+                              <Font name="Gabriola" size="26.0" />
                            </font>
                         </Label>
-                        <Label layoutX="468.0" layoutY="13.0" prefHeight="54.0" prefWidth="278.0" text="Keress pizzákat a kedvenc feltéteiddel, add meg őket a szűrőben! (Cellánként egyet)" textAlignment="CENTER" wrapText="true">
+                        <Label layoutX="468.0" layoutY="13.0" prefHeight="54.0" prefWidth="278.0" text="Keress pizzákat a kedvenc feltéteiddel, add meg őket a szűrőben! (Cellánként egyet)" textAlignment="CENTER" textFill="#461b1b" wrapText="true">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Gabriola" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="filter1" layoutX="541.0" layoutY="67.0" />
-                        <TextField fx:id="filter2" layoutX="541.0" layoutY="105.0" />
-                        <TextField fx:id="filter3" layoutX="541.0" layoutY="146.0" />
-                        <Button layoutX="634.0" layoutY="199.0" mnemonicParsing="false" onAction="#keresClicked" prefHeight="26.0" prefWidth="56.0" text="Keres">
+                        <TextField fx:id="filter1" layoutX="541.0" layoutY="67.0" style="-fx-background-color: #cec9bb;" />
+                        <TextField fx:id="filter2" layoutX="541.0" layoutY="105.0" style="-fx-background-color: #cec9bb;" />
+                        <TextField fx:id="filter3" layoutX="541.0" layoutY="146.0" style="-fx-background-color: #cec9bb;" />
+                        <Button layoutX="551.0" layoutY="197.0" mnemonicParsing="false" onAction="#keresClicked" prefHeight="26.0" prefWidth="56.0" style="-fx-background-color: #cec9bb;" text="Keres" textFill="#461b1b">
                            <font>
-                              <Font name="System Bold" size="12.0" />
+                              <Font name="Gabriola" size="18.0" />
                            </font>
                         </Button>
                      </children>
@@ -57,60 +57,63 @@
           </Tab>
           <Tab text="Kosár">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="653.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="653.0" style="-fx-background-color: #c26538;">
                      <children>
                         <VBox layoutX="47.0" layoutY="41.0" prefHeight="288.0" prefWidth="194.0">
                            <children>
-                              <ListView fx:id="basket" minWidth="-Infinity" onMouseClicked="#addSelected" prefHeight="309.0" prefWidth="356.0" />
+                              <ListView fx:id="basket" minWidth="-Infinity" onMouseClicked="#addSelected" prefHeight="309.0" prefWidth="356.0" style="-fx-background-color: #cec9bb;" />
                            </children>
                         </VBox>
-                        <Button layoutX="558.0" layoutY="246.0" mnemonicParsing="false" onAction="#sendOrder" prefHeight="38.0" prefWidth="104.0" text="MENTÉS" textAlignment="CENTER">
+                        <Button layoutX="558.0" layoutY="246.0" mnemonicParsing="false" onAction="#sendOrder" prefHeight="38.0" prefWidth="104.0" style="-fx-background-color: #cec9bb;" text="MENTÉS" textAlignment="CENTER" textFill="#461b1b">
                            <font>
-                              <Font name="Comic Sans MS Bold" size="18.0" />
+                              <Font name="Gabriola" size="24.0" />
                            </font>
                         </Button>
-                        <Label layoutX="477.0" layoutY="85.0" text="Cím:">
+                        <Label layoutX="477.0" layoutY="85.0" text="Cím:" textFill="#461b1b">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Gabriola" size="20.0" />
                            </font></Label>
-                        <Label layoutX="477.0" layoutY="41.0" text="Név:" textAlignment="RIGHT">
+                        <Label layoutX="477.0" layoutY="41.0" text="Név:" textAlignment="RIGHT" textFill="#461b1b">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Gabriola" size="20.0" />
                            </font></Label>
-                        <TextField fx:id="addressbox" layoutX="519.0" layoutY="84.0" prefHeight="26.0" prefWidth="205.0" />
-                        <TextField fx:id="namebox" layoutX="519.0" layoutY="40.0" prefHeight="26.0" prefWidth="205.0" />
-                        <Button layoutX="548.0" layoutY="310.0" mnemonicParsing="false" onAction="#torlesClicked" prefHeight="39.0" prefWidth="124.0" text="Kosár törlése">
+                        <TextField fx:id="addressbox" layoutX="519.0" layoutY="84.0" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #cec9bb;" />
+                        <TextField fx:id="namebox" layoutX="519.0" layoutY="40.0" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #cec9bb;" />
+                        <Button layoutX="548.0" layoutY="310.0" mnemonicParsing="false" onAction="#torlesClicked" prefHeight="39.0" prefWidth="124.0" style="-fx-background-color: #cec9bb;" text="Kosár törlése" textFill="#461b1b">
                            <font>
-                              <Font name="Comic Sans MS Bold" size="14.0" />
+                              <Font name="Gabriola" size="20.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="emailbox" layoutX="519.0" layoutY="128.0" prefHeight="26.0" prefWidth="205.0" />
-                        <TextField fx:id="phonebox" layoutX="519.0" layoutY="184.0" prefHeight="26.0" prefWidth="205.0" />
-                        <Label layoutX="458.0" layoutY="129.0" text="E-mail:">
+                        <TextField fx:id="emailbox" layoutX="519.0" layoutY="128.0" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #cec9bb;" />
+                        <TextField fx:id="phonebox" layoutX="519.0" layoutY="184.0" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #cec9bb;" />
+                        <Label layoutX="458.0" layoutY="129.0" text="E-mail:" textFill="#461b1b">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Gabriola" size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="420.0" layoutY="185.0" text="Telefonszám:">
+                        <Label layoutX="420.0" layoutY="185.0" text="Telefonszám:" textFill="#461b1b">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Gabriola" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="sumbox" layoutX="411.0" layoutY="265.0" prefHeight="26.0" prefWidth="95.0" />
-                        <Label layoutX="424.0" layoutY="238.0" text="Kosár értéke:" />
-                        <Label layoutX="159.0" layoutY="14.0" text="Kosár tartalma" textAlignment="CENTER">
+                        <TextField fx:id="sumbox" layoutX="411.0" layoutY="265.0" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #cec9bb;" />
+                        <Label layoutX="424.0" layoutY="238.0" text="Kosár értéke:" textFill="#461b1b">
                            <font>
-                              <Font name="Calibri Italic" size="22.0" />
+                              <Font name="Gabriola" size="16.0" />
+                           </font></Label>
+                        <Label layoutX="159.0" layoutY="14.0" text="Kosár tartalma" textAlignment="CENTER" textFill="#461b1b">
+                           <font>
+                              <Font name="Gabriola" size="26.0" />
                            </font>
                         </Label>
-                        <Label layoutX="573.0" layoutY="153.0" text="(valami@valahol.com)">
+                        <Label layoutX="573.0" layoutY="153.0" text="(valami@valahol.com)" textFill="#461b1b">
                            <font>
-                              <Font size="10.0" />
+                              <Font name="Gabriola" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="519.0" layoutY="210.0" text="(06xx-1234567, xx=20,30 vagy 70)">
+                        <Label layoutX="538.0" layoutY="210.0" text="(06xx-1234567, xx=20,30 vagy 70)" textFill="#461b1b">
                            <font>
-                              <Font size="10.0" />
+                              <Font name="Gabriola" size="14.0" />
                            </font>
                         </Label>
                      </children></AnchorPane>
@@ -118,18 +121,27 @@
           </Tab>
             <Tab text="Összesítés">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c26538;">
                      <children>
                         <VBox layoutX="243.0" layoutY="20.0" prefHeight="351.0" prefWidth="496.0">
                            <children>
-                              <ListView fx:id="AllOrders" prefHeight="352.0" prefWidth="496.0" />
+                              <ListView fx:id="AllOrders" prefHeight="352.0" prefWidth="496.0" style="-fx-background-color: #cec9bb;" />
                            </children>
                         </VBox>
-                        <Button layoutX="91.0" layoutY="338.0" mnemonicParsing="false" onAction="#RefreshAllOrderTab" text="Frissítés" />
-                        <TextField fx:id="incomeSum" alignment="CENTER" layoutX="46.0" layoutY="95.0" prefHeight="25.0" prefWidth="162.0" />
-                        <TextField fx:id="mean" alignment="CENTER" layoutX="46.0" layoutY="161.0" prefHeight="25.0" prefWidth="161.0" />
-                        <Label alignment="CENTER" layoutX="46.0" layoutY="70.0" prefHeight="17.0" prefWidth="149.0" text="Bevétel" />
-                        <Label alignment="CENTER" layoutX="42.0" layoutY="137.0" prefHeight="17.0" prefWidth="153.0" text="Egy vásárlás átlagos értéke" />
+                        <Button layoutX="91.0" layoutY="338.0" mnemonicParsing="false" onAction="#RefreshAllOrderTab" style="-fx-background-color: #cec9bb;" text="Frissítés" textFill="#461b1b">
+                           <font>
+                              <Font name="Gabriola" size="16.0" />
+                           </font></Button>
+                        <TextField fx:id="incomeSum" alignment="CENTER" layoutX="46.0" layoutY="95.0" prefHeight="25.0" prefWidth="162.0" style="-fx-background-color: #cec9bb;" />
+                        <TextField fx:id="mean" alignment="CENTER" layoutX="46.0" layoutY="161.0" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #cec9bb;" />
+                        <Label alignment="CENTER" layoutX="46.0" layoutY="70.0" prefHeight="17.0" prefWidth="149.0" text="Bevétel" textFill="#461b1b">
+                           <font>
+                              <Font name="Gabriola" size="16.0" />
+                           </font></Label>
+                        <Label alignment="CENTER" layoutX="42.0" layoutY="137.0" prefHeight="17.0" prefWidth="153.0" text="Egy vásárlás átlagos értéke" textFill="#461b1b">
+                           <font>
+                              <Font name="Gabriola" size="16.0" />
+                           </font></Label>
                      </children>
                   </AnchorPane>
               </content>

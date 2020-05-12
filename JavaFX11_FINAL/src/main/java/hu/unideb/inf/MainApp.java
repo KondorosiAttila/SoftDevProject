@@ -6,6 +6,7 @@ import hu.unideb.inf.view.FXMLStudentsSceneController;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -16,6 +17,10 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLOrderScene.fxml"));
         Scene scene = new Scene(loader.load());
+        
+        //Scene style = new Scene(new Group(), 760, 414);
+        //style.getStylesheets().add("/css/app.css");
+        
         stage.setTitle("Pizza Kingz");
         stage.setScene(scene);
         stage.show();
