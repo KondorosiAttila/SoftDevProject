@@ -1,7 +1,11 @@
 20200510141213:Teszt Elek:0630-6969420:Minta utca 11:tesztemail@gmail.com:6350:Florida,Little_Burger,Mega_Pizza,Gladiator
 20200510142112:Teszt Elek:0620-20201100:Minta utca 11:teszt@gmail.com:1650:5_sajtos
 20200510142550:Teszt Elek:0630-6969420:Minta utca 9999:teszt@mail.com:1400:Hawaii
-20200510142759:Ékezetes Név:0630-3004001:teniszütõ tér 23:asdasda@mail.com:1500:Florida
-20200512130310:ddd:0670-23456789:ss:s@g:3500:Csibesz,Fusti
+20200510142759:Ékezetes Név:0630-3004001:Teniszütõ tér 23:asdasda@mail.com:1500:Florida
 20200512132355:Pepszi Béla:0620-0123456:Kukutyin :amigtartabor@azenbiciklim:2950:Hawaii,Gladiator
 20200512161807:Alfonz:0630-0123456:Budapest:abc@gmail.com:3250:Gladiator,Full_Ínyenc
+20200513183821:Harr Mónika:0630-3213211:Mester utca 10:moni@yahoo.com:3150:Pizza_LEON,Vadász_Pizza
+20200513183931:Bödön Ödön:0630-5555555:Kossuth tér 1:boss@boss.com:3500:Füsti,Csibész
+20200513184213:Menõ Jenõ:0620-1230011:Hajnal utca 33:hungry@gmail.com:1550:Vadász_Pizza
+20200513184505:Ultra Viola:0670-55001234:Szabadság tér 74:theviola@citromail.hu:1650:4_évszak
+20200513184610:Példa Péter:0630-1234567:Fõ utca 2:peter@mail.com:5000:Gladiator,Füsti,5_sajtos

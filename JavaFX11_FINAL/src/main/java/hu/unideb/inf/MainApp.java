@@ -21,7 +21,7 @@ public class MainApp extends Application {
         //Scene style = new Scene(new Group(), 760, 414);
         //style.getStylesheets().add("/css/app.css");
         
-        stage.setTitle("Pizza Kingz");
+        stage.setTitle("Pizza Kingz rendelésfelvétel");
         stage.setScene(scene);
         stage.show();
     }

@@ -33,12 +33,12 @@
                               <Font name="Gabriola" size="18.0" />
                            </font>
                         </Button>
-                        <Label layoutX="73.0" layoutY="14.0" text="Választható Pizzák listája" textAlignment="CENTER" textFill="#461b1b" underline="true">
+                        <Label layoutX="73.0" layoutY="14.0" text="Választható Pizzák listája" textAlignment="CENTER" textFill="#fff0f0" underline="true">
                            <font>
                               <Font name="Gabriola" size="26.0" />
                            </font>
                         </Label>
-                        <Label layoutX="468.0" layoutY="13.0" prefHeight="54.0" prefWidth="278.0" text="Keress pizzákat a kedvenc feltéteiddel, add meg őket a szűrőben! (Cellánként egyet)" textAlignment="CENTER" textFill="#461b1b" wrapText="true">
+                        <Label layoutX="468.0" layoutY="13.0" prefHeight="54.0" prefWidth="278.0" text="Keress pizzákat a kedvenc feltéteiddel, add meg őket a szűrőben! (Cellánként egyet)" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                            <font>
                               <Font name="Gabriola" size="14.0" />
                            </font>
@@ -69,11 +69,11 @@
                               <Font name="Gabriola" size="24.0" />
                            </font>
                         </Button>
-                        <Label layoutX="477.0" layoutY="85.0" text="Cím:" textFill="#461b1b">
+                        <Label layoutX="477.0" layoutY="85.0" text="Cím:" textFill="#f2f2f2">
                            <font>
                               <Font name="Gabriola" size="20.0" />
                            </font></Label>
-                        <Label layoutX="477.0" layoutY="41.0" text="Név:" textAlignment="RIGHT" textFill="#461b1b">
+                        <Label layoutX="477.0" layoutY="41.0" text="Név:" textAlignment="RIGHT" textFill="#f5f5f5">
                            <font>
                               <Font name="Gabriola" size="20.0" />
                            </font></Label>
@@ -86,32 +86,32 @@
                         </Button>
                         <TextField fx:id="emailbox" layoutX="519.0" layoutY="128.0" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #cec9bb;" />
                         <TextField fx:id="phonebox" layoutX="519.0" layoutY="184.0" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #cec9bb;" />
-                        <Label layoutX="458.0" layoutY="129.0" text="E-mail:" textFill="#461b1b">
+                        <Label layoutX="458.0" layoutY="129.0" text="E-mail:" textFill="#e8e3e3">
                            <font>
                               <Font name="Gabriola" size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="420.0" layoutY="185.0" text="Telefonszám:" textFill="#461b1b">
+                        <Label layoutX="420.0" layoutY="185.0" text="Telefonszám:" textFill="#fffefe">
                            <font>
                               <Font name="Gabriola" size="20.0" />
                            </font>
                         </Label>
                         <TextField fx:id="sumbox" layoutX="411.0" layoutY="265.0" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #cec9bb;" />
-                        <Label layoutX="424.0" layoutY="238.0" text="Kosár értéke:" textFill="#461b1b">
+                        <Label layoutX="424.0" layoutY="238.0" text="Kosár értéke:" textFill="#f5f5f5">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font></Label>
-                        <Label layoutX="159.0" layoutY="14.0" text="Kosár tartalma" textAlignment="CENTER" textFill="#461b1b">
+                        <Label layoutX="159.0" layoutY="14.0" text="Kosár tartalma" textAlignment="CENTER" textFill="#fffdfd">
                            <font>
                               <Font name="Gabriola" size="26.0" />
                            </font>
                         </Label>
-                        <Label layoutX="573.0" layoutY="153.0" text="(valami@valahol.com)" textFill="#461b1b">
+                        <Label layoutX="573.0" layoutY="153.0" text="(valami@valahol.com)" textFill="#fcfcfc">
                            <font>
                               <Font name="Gabriola" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="538.0" layoutY="210.0" text="(06xx-1234567, xx=20,30 vagy 70)" textFill="#461b1b">
+                        <Label layoutX="538.0" layoutY="210.0" text="(06xx-1234567, xx=20,30 vagy 70)" textFill="#f2f2f2">
                            <font>
                               <Font name="Gabriola" size="14.0" />
                            </font>
@@ -134,11 +134,11 @@
                            </font></Button>
                         <TextField fx:id="incomeSum" alignment="CENTER" layoutX="46.0" layoutY="95.0" prefHeight="25.0" prefWidth="162.0" style="-fx-background-color: #cec9bb;" />
                         <TextField fx:id="mean" alignment="CENTER" layoutX="46.0" layoutY="161.0" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #cec9bb;" />
-                        <Label alignment="CENTER" layoutX="46.0" layoutY="70.0" prefHeight="17.0" prefWidth="149.0" text="Bevétel" textFill="#461b1b">
+                        <Label alignment="CENTER" layoutX="46.0" layoutY="70.0" prefHeight="17.0" prefWidth="149.0" text="Bevétel" textFill="#fff6f6">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font></Label>
-                        <Label alignment="CENTER" layoutX="42.0" layoutY="137.0" prefHeight="17.0" prefWidth="153.0" text="Egy vásárlás átlagos értéke" textFill="#461b1b">
+                        <Label alignment="CENTER" layoutX="42.0" layoutY="137.0" prefHeight="17.0" prefWidth="153.0" text="Egy vásárlás átlagos értéke" textFill="#eeecec">
                            <font>
                               <Font name="Gabriola" size="16.0" />
                            </font></Label>

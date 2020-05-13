@@ -98,7 +98,7 @@ public class OrderDAO {
         } catch (IOException ex) {
             //Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("FILE NEM TALALHATO");
-            ex.printStackTrace();
+            //ex.printStackTrace();
         }    
         
         /*
